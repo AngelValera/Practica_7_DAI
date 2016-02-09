@@ -115,6 +115,6 @@ urlpatterns += patterns('',
     )
 ```
 
-Añadidas estas líneas, podemos ver que la aplicación está funcioanndo y desplegada en heroku.
+Añadidas estas líneas, podemos ver que la aplicación está funcionando y desplegada en heroku.
 
 ![](http://i666.photobucket.com/albums/vv21/angelvalera/Seleccioacuten_017_zpsm5ipzpz6.png)
