@@ -1,0 +1,31 @@
+{% extends "app/base.html" %}
+
+{% load static %}
+
+{% load bootstrap_toolkit %}
+
+{% block title %}-Registro{% endblock %}
+
+{% block content %}
+
+  {% if not registered %}
+    <div class="page-header">
+    <h1>Registro </h1>
+    </div>
+
+    <form role="form" id="user_form" method="post" action="/registro/"
+      enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <!-- Display each form. The as_p method wraps each element in a paragraph
+      (<p>) element. This ensures each element appears on a new line,
+      making everything look neater. -->
+      <!-- {{ user_form.as_p }}-->
+      <!--  {{ formulario.as_table }}-->
+      {{ formulario|as_bootstrap }}
+      <br/>
+      <!-- Provide a button to click to submit the form. -->
+      <input class="btn btn-primary" type="submit" name="submit" value="Registrarse" />
+    </form>
+  {% endif %}
+{% endblock %}

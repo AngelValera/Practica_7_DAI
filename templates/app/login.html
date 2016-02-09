@@ -1,0 +1,22 @@
+{% extends "app/base.html" %}
+
+{% load static %}
+
+{% block title %}-Login{% endblock %}
+<link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
+
+{% block content %}
+  <div class="page-header">
+      <h1>Login </h1>
+  </div>
+  <form class="form-signin"  style="width:50%" id="login_form" method="post" action="/login/">
+      {% csrf_token %}
+      Username: <input class="form-control" type="text" name="username" value=""  />
+      <br />
+      Password: <input class="form-control" type="password" name="password" value=""  />
+      <br />
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit" value="Submit" style="width:25%" >Enviar</button>
+  </form>
+
+{% endblock %}

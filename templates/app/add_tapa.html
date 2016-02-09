@@ -1,0 +1,27 @@
+{% extends "app/base.html" %}
+
+
+{% block title %}-Añadir una nueva tapa{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h1>Añadir una nueva tapa</h1>
+</div>
+  <form  role="form" enctype="multipart/form-data"  style="margin:3%" id="tapar_form" method="post" action="/add_tapa/">
+
+      {% csrf_token %}
+      {% for hidden in form.hidden_fields %}
+          {{ hidden }}
+      {% endfor %}
+
+      {% for field in form.visible_fields %}
+        <div class="form-group">
+          {{ field.errors }}
+          {{ field.help_text }}
+          {{ field }}
+        </div>
+      {% endfor %}
+      <br/>
+      <input class="btn btn-primary" type="submit" name="submit" value="Añadir tapa" />
+  </form>
+{% endblock %}

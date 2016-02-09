@@ -1,0 +1,142 @@
+<!doctype html>
+
+
+{% load staticfiles %}
+
+<HTML lang="es">
+	<head>
+    {% block head %}
+		<meta charset="UTF-8"/>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="http://getbootstrap.com/favicon.ico">
+		<!--<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">-->
+
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+		<title >DAI:P4 {% block title %}{% endblock %}</title>
+		<!--<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">-->
+		<!--<link href="{% static "css/dashboard.css" %}" rel="stylesheet">-->
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<!--<script src="{% static "js/jquery.min.js" %}"></script>-->
+
+		<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+
+		<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+		<!--	<script src="{% static "js/bootstrap.min.js" %}"></script>-->
+
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+		<!--	<script src="{% static "js/ie10-viewport-bug-workaround.js" %}"></script>-->
+
+		<script src="http://code.highcharts.com/highcharts.js"></script>
+		<!-- JavaScript
+		================================================== -->
+		<script src="{% static "js/app-jquery.js" %}"></script>
+		<script src="{% static "js/app-ajax.js" %}"></script>
+
+
+    {% endblock %}
+	</head>
+
+	<body>
+		<!--Barra de navegacion -->
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="{% url 'index' %}">Bares y Tapas IV-DAI</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="{% url 'index' %}">Home</a></li>
+
+						{% if user.is_authenticated %}
+						<li><a href="{% url 'restricted' %}">Restricted Page</a></li>
+						<li><a href="{% url 'logout' %}">Logout</a></li>
+						<li><a href="{% url 'add_bar' %}">Añadir nuevo Bar</a></li>
+						<li><a href="{% url 'add_tapa' %}">Añadir nueva tapa</a></li>
+						{% else %}
+							<li><a href="{% url 'registro' %}">Registrarse</a></li>
+							<li><a href="{% url 'login' %} ">Login</a></li>
+						{% endif %}
+
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-3 col-md-2 sidebar">
+					{% block secciones %}
+					<!--******************************************************************************************************************************************************-->
+
+				<!--******************************************************************************************************************************************************-->
+						<h3 style="margin-top: 30px; padding-top:30px;	">
+							<b> BARES </b>
+						</h3>
+						<!--Botonera con las secciones de productos-->
+						<nav id="secs">
+							{% if bares %}
+								<ul>
+									{% for bar in bares %}
+										<li > <a  href="{% url 'bar'  bar.slug %}">  <p><b>{{ bar.nombre }}</b></p> </a></li>
+									{% endfor %}
+								</ul>
+							{% else %}
+								<strong>No hay Bares presentes.</strong>
+							{% endif %}
+						</nav>
+						<div class="btn-group-vertical">
+							<button class="btn btn-default btn-xs" id="btn-pequena">Letra pequeña</button>
+							<button class="btn btn-default btn-xs" id="btn-grande">Letra grande</button>
+							<button  class="btn btn-default btn-xs" id ="btn-normal">Letra normal</button>
+					</div>
+					{% endblock %}
+				</div>
+				<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="margin-top: 0px; padding-top:0px;">
+					<div style="margin-top: 0px; padding-top:0px;	 ">
+						<!--CONTENIDO DE LA PAGINA-->
+						{% block content %}{% endblock %}
+
+						<!--Pie de página-->
+						{% block footer %}
+							<footer  class="panel-footer">
+								<!--Artículo con la información de contacto-->
+								<article id="contacto" align="center">
+									<h3  align="center"><b>CONTACTO</b></h3>
+									<a href="mailto:angelvalera.epal@gmail.com"><b>Correo:</b> angelvalera.epal@gmail.com<br/></a>
+									<b>Creador:</b> Ángel Valera Motos<br/>
+									<b>Teléfono:</b> 958-112-233
+								</article>
+								<!--Artículo con el botón para inscribirse a la página -->
+								<article id="detalles">
+									<h3 align="center"><b>DETALLES</b></h3>
+									<p align="center">Esta página es una práctica para la asignatura de <abbr title="Desarrollo de Aplicaciones para Internet">DAI</abbr>  en el <abbr title="Grado de Ingenieria Informatica">GII</abbr> de la <abbr title="Universidad de Granada">UGR</abbr>, ninguna oferta es real. Gracias por su visita</p>
+								</article>
+								<!--Artículo con la dirección-->
+								<article id="direccion">
+									<h3 align="center"><b>DIRECCION</b></h3>
+									<address align="center"> C/ Plaza Nueva, s/n, 18858, Orce Granada </address>
+								</article>
+							</footer>
+						{% endblock %}
+				</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>

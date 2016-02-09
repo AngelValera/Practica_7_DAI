@@ -1,0 +1,38 @@
+{% extends "app/base.html" %}
+
+{% load easy_maps_tags %}
+
+{% block title %}-{{ bar_name }}{% endblock %}
+
+{% block content %}
+  <div class="page-header">
+    <h1>{{ bar_name }}</h1>
+    <h6>Visitas:{{ bar_visitas }}</h6>
+    {{ bar_direccion }}
+    {% easy_map bar_direccion 300 300   %}
+  </div>
+  <div class="row placeholders">
+    <div class="col-xs-12 col-sm-6 placeholder">
+      <div class="panel panel-primary">
+        <div class="panel-heading" >
+          <h3 class="panel-title" >Tapas</h3>
+        </div>
+        <div class="col-xs-12 col-sm-6 placeholder"  style="margin-top:10px; width:92%;">
+          {% if tapas %}
+            <ul>
+              {% for tapa in tapas %}
+                {% if tapa.picture %}
+                  <li class="list-group-item" ><a href="{% url 'tapa'  bar.slug tapa.slug %}"><img class=" .thumbnail" style=" border-radius:0;" width="100%" height="100%" src="{{tapa.picture.url}}" alt="{{ tapa.nombre }}" /></a></li>
+                {% endif %}
+                <li class="list-group-item"><a href="{% url 'tapa'  bar.slug tapa.slug %}">{{ tapa.nombre }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+            {% else %}
+              <strong>No hay tapas actualmente en este bar.</strong>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

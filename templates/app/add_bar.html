@@ -1,0 +1,27 @@
+{% extends "app/base.html" %}
+
+
+{% block title %}-Añadir un nuevo bar{% endblock %}
+
+{% block content %}
+  <div class="page-header">
+    <h1>Añadir un nuevo Bar</h1>
+  </div>
+
+  <form role="form" style="margin:3%" id="bar_form" method="post" action="/add_bar/">
+    {% csrf_token %}
+    {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+    {% endfor %}
+
+    {% for field in form.visible_fields %}
+      <div class="form-group">
+        {{ field.errors }}
+        {{ field.help_text }}
+        {{ field }}
+      </div>
+    {% endfor %}
+    <br/>
+    <button class="btn btn-primary" type="submit" name="submit">Añadir bar</button>
+  </form>
+{% endblock %}

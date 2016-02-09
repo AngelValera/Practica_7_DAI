@@ -1,0 +1,53 @@
+{% extends "app/base.html" %}
+
+{% load staticfiles %}
+{% block title %}-Portada{% endblock %}
+{% block content %}
+  {% if user.is_authenticated %}
+  <div class="page-header">
+    <h1>Bienvenido {{ user.username }}!</h1>
+  {% else %}
+    <h1>Bienvenido desconocido</h1>
+  {% endif %}
+
+  </div>
+  <div class="row placeholders">
+    <div class="col-xs-12 col-sm-6 placeholder">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Top Bares</h3>
+        </div>
+      </div>
+      {% if bares %}
+        <ul>
+        {% for bar in bares_ordenados %}
+          <li class="list-group-item"><a href="{% url 'bar'  bar.slug %}">{{ bar.nombre }}</a></li>
+        {% endfor %}
+        </ul>
+      {% else %}
+        <strong>No hay bares presentes.</strong>
+      {% endif %}
+    </div>
+    <div class="col-xs-12 col-sm-6 placeholder">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+                <h3 class="panel-title">Top Tapas</h3>
+        </div>
+      </div>
+      {% if tapas %}
+        <ul>
+          {% for tapa in tapas %}
+
+            <li class="list-group-item"><a href="{% url 'tapa'  tapa.bar.slug tapa.slug %}">{{ tapa.nombre }}</a></li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <strong>No hay tapas presentes.</strong>
+      {% endif %}
+    </div>
+
+
+
+  </div>
+  <div id="container" style="width:100%; height:400px;"></div>
+{% endblock %}
