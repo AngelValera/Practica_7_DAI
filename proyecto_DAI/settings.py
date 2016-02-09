@@ -90,7 +90,7 @@ DATABASES = {
 
 ON_HEROKU = os.environ.get('PORT')
 if ON_HEROKU:
-	DATABASE_URL='postgres://tnvbvmmuroapil:Myi9_1JBJZSP6EzjtEWN7Q9Arh@ec2-54-204-5-56.compute-1.amazonaws.com:5432/dfoub80thb1lb4'
+	DATABASE_URL='postgres://pgjadckvoipalv:llBJ3tKx2E1vdmTCtovMpRYZJs@ec2-54-83-55-214.compute-1.amazonaws.com:5432/dj4ivu5tlsh1j'
 	DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 # Internationalization
