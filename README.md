@@ -71,7 +71,7 @@ Lo primero es clonarnos el repositorio de [github](https://github.com/AngelValer
 
 **heroku create**-->Creamos la aplicación dentro deheroku
 
-**heroku apps:rename practica7daiavm**-->Le cambiamos el nombre que nos pone por defecto por el de merka
+**heroku apps:rename practica7daiavm**-->Le cambiamos el nombre que nos pone por defecto por el de practica7daiavm
 
 **git push heroku master**-->La desplegamos.
 
