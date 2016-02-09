@@ -69,7 +69,7 @@ Lo primero es clonarnos el repositorio de [github](https://github.com/AngelValer
 
 **heroku login**-->Nos logueamos dentro de heroku
 
-**heroku create**-->Creamos la aplicación dentro deheroku
+**heroku create**-->Creamos la aplicación dentro de heroku
 
 **heroku apps:rename practica7daiavm**-->Le cambiamos el nombre que nos pone por defecto por el de practica7daiavm
 
