@@ -22,7 +22,6 @@
             <ul>
               {% for tapa in tapas %}
                 {% if tapa.picture %}
-                  {{tapa.picture.url}}
                   <li class="list-group-item" ><a href="{% url 'tapa'  bar.slug tapa.slug %}"><img class=" .thumbnail" style=" border-radius:0;" width="100%" height="100%" src="{{tapa.picture.url}}" alt="{{ tapa.nombre }}" /></a></li>
                 {% endif %}
                 <li class="list-group-item"><a href="{% url 'tapa'  bar.slug tapa.slug %}">{{ tapa.nombre }}</a>
