@@ -29,14 +29,12 @@ Dicho esto para desplegar la aplicación he hecho lo siguiente:
 
 Primero necesitamos una serie de ficheros que necesitamos para el despliegue, estos son:
 
-- **[Procfile](Status API Training Shop Blog About Pricing
-):** se usa para que heroku sepa que tiene que ejecutar, para ello utiliza gunicorn:
+- **[Procfile](https://github.com/AngelValera/Practica_7_DAI/blob/master/Procfile):** se usa para que heroku sepa que tiene que ejecutar, para ello utiliza gunicorn:
 
 ```
 web: gunicorn proyecto_DAI.wsgi --log-file -
 ```
-- **[requirements.txt](Status API Training Shop Blog About Pricing
-)**: para que la aplicación funcione necesita indicar que necesita para ejecutarse:
+- **[requirements.txt](https://github.com/AngelValera/Practica_7_DAI/blob/master/requirements.txt)**: para que la aplicación funcione necesita indicar que necesita para ejecutarse:
 
 ```
 Django==1.8.5
@@ -91,9 +89,9 @@ Con esto cada vez que hagamos push  nos pasará los test y si son satisfactorios
 
 ##**Directorio /static con Debug=False**
 
-Para que nos siga sirviendo el contenido estático, he añadido las siguientes líneasa los archivos settings.py y urls.py:
+Para que nos siga sirviendo el contenido estático, he añadido las siguientes líneasa los archivos proyecto_DAI/settings.py y proyecto_DAI/urls.py:
 
-**En [settings.py](https://github.com/AngelValera/Practica_7_DAI/blob/master/proyecto_DAI/settings.py):**
+**En [proyecto_DAI/settings.py](https://github.com/AngelValera/Practica_7_DAI/blob/master/proyecto_DAI/settings.py):**
 
 ```python
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -105,7 +103,7 @@ STATICFILES_DIRS = (
 )
 ```
 
-**En [urls.py](https://github.com/AngelValera/Practica_7_DAI/blob/master/proyecto_DAI/urls.py):**
+**En [proyecto_DAI/urls.py](https://github.com/AngelValera/Practica_7_DAI/blob/master/proyecto_DAI/urls.py):**
 
 ```python
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
@@ -117,5 +115,6 @@ urlpatterns += patterns('',
     )
 ```
 
+Añadidas estas líneas, podemos ver que la aplicación está funcioanndo y desplegada en heroku.
 
 ![](http://i666.photobucket.com/albums/vv21/angelvalera/Seleccioacuten_017_zpsm5ipzpz6.png)
