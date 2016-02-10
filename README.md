@@ -118,3 +118,17 @@ urlpatterns += patterns('',
 Añadidas estas líneas, podemos ver que la aplicación está funcionando y desplegada en heroku.
 
 ![](http://i666.photobucket.com/albums/vv21/angelvalera/Seleccioacuten_017_zpsm5ipzpz6.png)
+
+
+
+Por último, para que se vean las imágenes de /media, lo que hecho hasido copiar ese directorio dentro de/static mostrando así que también muestra esas imágenes (si ya estaban en el directorio media, si no no se muestran porque no se almacenan en el servidor):
+
+Pra esto último, copiamos el direcctorio /media, como he dicho, en el /static y en l settings.py ponemos lo siguiente:
+
+
+```python
+MEDIA_URL = '/static/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '/static/media/')
+```
+
+![](http://i666.photobucket.com/albums/vv21/angelvalera/Seleccioacuten_018_zpscmuobn87.png)
