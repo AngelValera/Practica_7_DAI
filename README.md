@@ -89,7 +89,7 @@ Con esto cada vez que hagamos push  nos pasará los test y si son satisfactorios
 
 ##**Directorio /static con Debug=False**
 
-Para que nos siga sirviendo el contenido estático, he añadido las siguientes líneasa los archivos proyecto_DAI/settings.py y proyecto_DAI/urls.py:
+Para que nos siga sirviendo el contenido estático, he añadido las siguientes líneas a los archivos proyecto_DAI/settings.py y proyecto_DAI/urls.py:
 
 **En [proyecto_DAI/settings.py](https://github.com/AngelValera/Practica_7_DAI/blob/master/proyecto_DAI/settings.py):**
 
@@ -115,7 +115,7 @@ urlpatterns += patterns('',
     )
 ```
 
-Añadidas estas líneas, podemos ver que la aplicación está funcionando y desplegada en heroku.
+Añadidas estas líneas, podemos ver que la aplicación está funcionando, sirviendo el contenido que hay en la carpeta [/static](https://github.com/AngelValera/Practica_7_DAI/tree/master/static) y desplegada en heroku.
 
 ![](http://i666.photobucket.com/albums/vv21/angelvalera/Seleccioacuten_017_zpsm5ipzpz6.png)
 
