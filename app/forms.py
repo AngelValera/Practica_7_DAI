@@ -37,7 +37,7 @@ class TapaForm(forms.ModelForm):
     class Meta:
         # Provide an association between the ModelForm and a model
         model = Tapa
-        fields = ('bar','nombre','descripcion', 'picture')
+        fields = ('bar','nombre','descripcion')
 
 
 
